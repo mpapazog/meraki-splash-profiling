@@ -3,13 +3,14 @@
 // Define your Application Configurations here
 var config = {
     // Meraki API Key
-    apiKey: "2f301bccd61b6c642d250cd3f76e5eb66ebd170f", // Demo API Key
+    apiKey: "123",
     // Meraki API Base URL
-    apiUrl: "https://api.meraki.com/api/v0", 
-    // The Meraki Network ID
-    networkId: "L_643451796760560141", 
-    // The Meraki Group Policy ID 
-    policy: "103"
+    apiUrl: "https://api.meraki.com/api/v0",
+    // The Meraki Organization ID
+    organizationId: "123",
+    // The Meraki Group Policy IDs
+    policyByod: 108,
+    policyCorporate: 107
 }
 
 module.exports = config;
