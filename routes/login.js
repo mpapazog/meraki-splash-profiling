@@ -13,7 +13,15 @@ router.post('/', function (req, res, next) {
   const policyId = configs.policy;
   const baseUrl = req.protocol + '://' + req.get('host');
   const apiEndpoint = '/api/networks/' + configs.networkId + '/clients/' + clientMac + '/policy?timespan=84000';
-
+  
+  // Profiling parameters
+  const userAgent = req.body.user_agent;
+  
+  if (userAgent.indexOf("Windows") != -1) {
+      alert("Got Windows");
+  }
+  
+  /*
   // Bind client to a group policy id
   axios.put(baseUrl+apiEndpoint,
     { devicePolicy: 'Group policy', groupPolicyId: policyId })
@@ -30,6 +38,7 @@ router.post('/', function (req, res, next) {
       console.log("Policy Failed", error);
       res.end();
     });
+    */
 
 });
 
