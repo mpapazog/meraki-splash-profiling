@@ -1,5 +1,12 @@
-# Meraki Splash Page with Group Policies
-A simple NodeJS applicaiton using Express with Handlebars
+# Meraki Splash Page with Group Policies and client device profiling
+A simple NodeJS application using Express with Handlebars
+
+Based on code by @dexterlabora. The code has been adapted as follows:
+* configs.js: Requires organizationId instead of networkId. Supports 2 separate Group policies, one for Corporate access and one for BYOD
+* index.js: Includes code for profiling clients to BYOD/Workstations. Feel free to modify the code to tune it to better detect your client devices
+* login.js: Resolves networkId based on AP MAC address. Uses profiling information to set differentiated policies
+
+# Original documentation by dexterlabora:
 
 ![screenshot](./screenshots/splash-screenshot.png "Splash Page")
 
