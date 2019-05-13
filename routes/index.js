@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   console.log("index.js / req.body: ",req.body);
 
   var payload = {
+    user_agent : req.headers['user-agent'],
     host : req.headers.host,
     base_grant_url : req.query.base_grant_url,
     user_continue_url : req.query.user_continue_url,
