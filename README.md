@@ -1,7 +1,7 @@
 # Meraki Splash Page with Group Policies and client device profiling
-A simple NodeJS application using Express with Handlebars
+A simple NodeJS application using Express with Handlebars. The captive portal will classify connected client devices as corporate/workstation or BYOD/mobile and activate the correct group policy object for the client.
 
-Based on code and documentation by @dexterlabora. The code has been adapted as follows:
+Based on code and documentation by dexterlabora. The code has been adapted as follows:
 * configs.js: Requires organizationId instead of networkId. Supports 2 separate Group policies, one for Corporate access and one for BYOD
 * index.hbs: One more hidden field has been added to communicate profiling result to the login page
 * index.js: Includes code for profiling clients to BYOD/Workstations. Feel free to modify the code to tune it to better detect your client devices
