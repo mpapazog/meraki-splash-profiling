@@ -64,10 +64,15 @@ Network-wide --> Configure --> Group Policies
 - Splash: Bypass
 
 
-### Use Postman to get IDs
+### How to get your Organization and Policy IDs
+
+Method 1, use Postman:
 https://documenter.getpostman.com/view/897512/meraki-dashboard-prov-api/2To9xm#intro
-- orgID
-- policyID
+
+Method 2, use the `Try it out` tool on the Meraki Dashboard API documentation page:
+https://developer.cisco.com/meraki/api/#/rest/api-endpoints/organizations/get-organizations
+https://developer.cisco.com/meraki/api/#/rest/api-endpoints/networks/get-organization-networks
+https://developer.cisco.com/meraki/api/#/rest/api-endpoints/group-policies/get-network-group-policies
 
 ### Using the portal with multiple networks
 The current implementation requires all networks to have the same policyIDs for the Corporate and BYOD policies. The easiest way to achieve this is to bind them to the same configuration template: https://documentation.meraki.com/zGeneral_Administration/Templates_and_Config_Sync/Managing_Multiple_Networks_with_Configuration_Templates
