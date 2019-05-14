@@ -1,12 +1,12 @@
 # Meraki Splash Page with Group Policies and client device profiling
 A simple NodeJS application using Express with Handlebars
 
-Based on code by @dexterlabora. The code has been adapted as follows:
+Based on code and documentation by @dexterlabora. The code has been adapted as follows:
 * configs.js: Requires organizationId instead of networkId. Supports 2 separate Group policies, one for Corporate access and one for BYOD
+* index.hbs: One more hidden field has been added to communicate profiling result to the login page
 * index.js: Includes code for profiling clients to BYOD/Workstations. Feel free to modify the code to tune it to better detect your client devices
 * login.js: Resolves networkId based on AP MAC address. Uses profiling information to set differentiated policies
 
-# Original documentation by dexterlabora:
 
 ![screenshot](./screenshots/splash-screenshot.png "Splash Page")
 
@@ -27,10 +27,11 @@ var config = {
     apiKey: "YourAPIKey", 
     // The "shard" number for your Meraki organization (find this in your dashboard URL)
     shard: "n###", 
-    // The Meraki Network ID
-    networkId: "YourNetworkID", 
-    // The Meraki Group Policy ID 
-    policy: "102"
+    // The Meraki Organization ID
+    organizationId: "123",
+    // The Meraki Group Policy IDs
+    policyByod: 108,
+    policyCorporate: 107
 }
 ```
 
@@ -59,16 +60,19 @@ Wireless --> Configure --> Splash
 
 ### Group Policy
 Network-wide --> Configure --> Group Policies
-- add Group
+- add Groups for Corporate and BYOD access
 - Splash: Bypass
 
 
 ### Use Postman to get IDs
 https://documenter.getpostman.com/view/897512/meraki-dashboard-prov-api/2To9xm#intro
-- netID
+- orgID
 - policyID
 
+### Using the portal with multiple networks
+The current implementation requires all networks to have the same policyIDs for the Corporate and BYOD policies. The easiest way to achieve this is to bind them to the same configuration template: https://documentation.meraki.com/zGeneral_Administration/Templates_and_Config_Sync/Managing_Multiple_Networks_with_Configuration_Templates
 
-
+### Troubleshooting
+If your device is classified as "unknown" by the profiling algorithm, most likely your user agent string or MAC OUI is missing from the ruleset. To modify the ruleset, edit function `profileClient` in file `/routes/index.js`.
 
 
