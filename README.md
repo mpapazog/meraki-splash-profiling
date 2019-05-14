@@ -75,4 +75,6 @@ The current implementation requires all networks to have the same policyIDs for 
 ### Troubleshooting
 If your device is classified as "unknown" by the profiling algorithm, most likely your user agent string or MAC OUI is missing from the ruleset. To modify the ruleset, edit function `profileClient` in file `/routes/index.js`.
 
+Every time you access the captive portal index page with a client, the Node.js log window will display the client's HTTP user agent and MAC address. Use this information to modify the profiling ruleset.  
+
 
