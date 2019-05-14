@@ -25,8 +25,8 @@ Open the `configs.sample.js` file and edit the variables and save the file as `c
 var config = {
     // Meraki API Key
     apiKey: "YourAPIKey", 
-    // The "shard" number for your Meraki organization (find this in your dashboard URL)
-    shard: "n###", 
+    // Meraki API Base URL
+    apiUrl: "https://api.meraki.com/api/v0",
     // The Meraki Organization ID
     organizationId: "123",
     // The Meraki Group Policy IDs
